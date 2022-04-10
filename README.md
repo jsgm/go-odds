@@ -1,6 +1,6 @@
 # go-odds
 
-<img align="right" src="https://github.com/jsgm/go-odds/raw/master/.github/go-fuzz.png" alt="go-odds" title="go-odds" />
+<img align="right" src="https://github.com/jsgm/go-odds/raw/master/.github/go-odds.png" alt="go-odds" title="go-odds" />
 
 [![Go Reference](https://pkg.go.dev/badge/badge/github.com/jsgm/go-odds.svg)](https://pkg.go.dev/github.com/jsgm/go-odds)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jsgm/go-odds)](https://goreportcard.com/report/github.com/jsgm/go-odds)
