@@ -23,8 +23,8 @@ import (
 )
 ```
 
-# Converting odds between formats
-## Data types
+## Converting odds between formats
+### Data types
 Each odd type will return a different data type, depending on your needs.
 | Odd format | Function | Type |
 | ------ | ------ | ------ |
@@ -35,7 +35,7 @@ Each odd type will return a different data type, depending on your needs.
 | HongKong | .HongKong() | float64 |
 | Implied Probability | .Probability() | float64 |
 
-## Convert odds between different formats
+### Convert odds between different formats
 ```go
 o := odds.NewOdd(odds.Decimal, 1.64)
 
@@ -43,7 +43,7 @@ o := odds.NewOdd(odds.Decimal, 1.64)
 float := o.Probability()
 ```
 
-# Overround and Payouts
+## Overround and Payouts
 ```go
 home, _ := odds.NewOdd(odds.Implied, 65.00) // Home odds from Implied Probability
 draw, _ := odds.NewOdd(odds.Decimal, 4.00)
@@ -53,11 +53,11 @@ fmt.Println("Overround ", odds.GetOverround([]odds.Odd{home, draw, away})) // 4.
 fmt.Println("Payout ", odds.GetPayout([]odds.Odd{home, draw, away})) // 95.71428571428572
 ```
 
-# Wager
+## Wager
 
-# Arbitrage Calculation
+## Arbitrage Calculation
 
-# Kelly Criterion
+## Kelly Criterion
 Kelly Criterion is simply strategy that helps calculating the proper stake that you should wager on a particular event. This doesn't just applies to betting but also for investing and calculating risks.
 
 <img align="right" src="https://latex.codecogs.com/svg.latex?\Large&space;K%=\frac{bp-q}{b}" alt="Kelly Criterion Formula">
@@ -67,7 +67,7 @@ Kelly Criterion is simply strategy that helps calculating the proper stake that 
 - q is the probability of lossing. i.e. 100% - p = 30. The value would be 0.3.
 - K% is the suggested percentage of the bankroll for the event.
 
-# Simple Parlay Bets
+## Simple Parlay Bets
 ```go	
 o1, _ := odds.NewOdd(odds.Decimal, 1.25)
 o2, _ := odds.NewOdd(odds.Implied, 50.7)
