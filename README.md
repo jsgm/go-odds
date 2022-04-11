@@ -8,22 +8,24 @@
 
 __go-odds__ is a simple and fast utility library for making betting odds conversions between formats and calculating probabilities in Go.
 
+Logo created by [Egon Elbre](https://github.com/egonelbre).
+
 ## Installation
 Download the library using _go get_:
 ```go
-go get https://github.com/jsgm/go-odds
+go get github.com/jsgm/go-odds
 ```
 
 Import in your current repository:
 ```go
 import (
-    odds "https://github.com/jsgm/go-odds"
+    odds "github.com/jsgm/go-odds"
 )
 ```
 
 ## Data types
 Each odd type will return a different data type, depending on your needs.
-| Odd format | Function | README |
+| Odd format | Function | Type |
 | ------ | ------ | ------ |
 | Moneyline | .Moneyline() | int16 |
 | Indonesian | .Indonesian() | float64 |
@@ -34,11 +36,13 @@ Each odd type will return a different data type, depending on your needs.
 
 ## Convert odds between different formats
 ```go
-o := NewOdd(Decimal, 1.64)
+o := odds.NewOdd(odds.Decimal, 1.64)
 
 // Convert to implied probability
 float := o.Probability()
 ```
+
+## Calculate Overround and Payouts
 
 ## License
 MIT
