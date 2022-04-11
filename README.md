@@ -10,6 +10,15 @@ __go-odds__ is a simple and fast utility library for making betting odds convers
 
 Go gopher illustration created by [Egon Elbre](https://github.com/egonelbre), originally created by [Renee French](https://reneefrench.blogspot.com/).
 
+- [Installation](#installation)
+- [Converting odds between formats](#converting-odds-between-formats)
+  * [Data types](#data-types)
+  * [Odds conversions](#odds-conversions)
+- [Overround and Payouts](#overround-and-payouts)
+- [Arbitrage Calculation](#arbitrage-calculation)
+- [Kelly Criterion](#kelly-criterion)
+- [Simple Parlay Bets](#installation)
+
 ## Installation
 Download the library using _go get_:
 ```
@@ -35,7 +44,7 @@ Each odd type will return a different data type, depending on your needs.
 | HongKong | .HongKong() | float64 |
 | Implied Probability | .Probability() | float64 |
 
-### Convert odds between different formats
+### Odds conversions
 ```go
 o := odds.NewOdd(odds.Decimal, 1.64)
 
@@ -52,10 +61,8 @@ away, _ := odds.NewOdd(odds.Decimal, 7.00)
 fmt.Println("Overround ", odds.GetOverround([]odds.Odd{home, draw, away})) // 4.285714285714278
 fmt.Println("Payout ", odds.GetPayout([]odds.Odd{home, draw, away})) // 95.71428571428572
 ```
-
-## Wager
-
 ## Arbitrage Calculation
+todo
 
 ## Kelly Criterion
 Kelly Criterion is simply strategy that helps calculating the proper stake that you should wager on a particular event. This doesn't just applies to betting but also for investing and calculating risks.
@@ -85,4 +92,6 @@ p.Probability() // 12.949364663814572 (%)
 ```
 
 ## Round Robin
+todo
 ## Teaser
+todo
