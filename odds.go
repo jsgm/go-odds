@@ -1,7 +1,7 @@
 package odds
 
 import (
-	"fmt"
+	"errors"
 )
 
 const (
@@ -28,20 +28,22 @@ type Odd struct{
 	Value interface{}
 }
 
-func NewOdd(oType int, oVal interface{}) Odd{
+func NewOdd(oType int, oVal interface{}) (Odd, error){
 	odd := Odd{Type: oType, Value: oVal, FloatPrecision: 2}
 
 	switch oVal.(type) {
 		case float64:
 			if oType == Decimal{
 				odd.DecimalValue = oVal.(float64)
+			}else if oType == Implied{
+				odd.DecimalValue = 100.0 / oVal.(float64)
+			}else{
+				return Odd{}, errors.New("float64 only accepts 'Decimal' and 'Implied' as odd format.")
 			}
-		
 		default:
-			fmt.Println("Error")
+			return Odd{}, errors.New("Odd value data type is not correct.")
 	}
-
-	return odd
+	return odd, nil
 }
 
 func (odd *Odd) Precision(newPrecision uint8) Odd{
@@ -56,16 +58,16 @@ func (odd *Odd) Valid() bool{
 	return false
 }
 
+// Returns the Moneyline value as int16 from Odd{}.
 func (odd *Odd) Moneyline() int16{
 	if odd.DecimalValue >= 2.0{
-		// (Decimal - 100) * 100
 		return int16((odd.DecimalValue - 100) * 100)
 	}else{
-		// (-100) / (Decimal - 1)
 		return int16((-100) / (odd.DecimalValue - 1))
 	}
 }
 
+// Returns the Implied Probability as float64 from Odd{}.
 func (odd *Odd) Probability() float64{
 	if odd.DecimalValue <= 0{
 		return 0
@@ -89,12 +91,9 @@ func (odd *Odd) Malay() float64{
 	}
 }
 
+// Returns the decimal value as float64 from Odd{}.
 func (odd *Odd) Decimal() float64{
 	return odd.DecimalValue
-}
-
-func (odd *Odd) Debug(){
-	fmt.Println(odd)
 }
 
 func (odd *Odd) HongKong() float64{

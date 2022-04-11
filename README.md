@@ -43,6 +43,11 @@ float := o.Probability()
 ```
 
 ## Calculate Overround and Payouts
+```go
+home, _ := odds.NewOdd(odds.Implied, 65.00) // Home odds from Implied Probability
+draw, _ := odds.NewOdd(odds.Decimal, 4.00)
+away, _ := odds.NewOdd(odds.Decimal, 7.00)
 
-## License
-MIT
+fmt.Println("Overround ", odds.GetOverround([]odds.Odd{home, draw, away})) // 4.285714285714278
+fmt.Println("Payout ", odds.GetPayout([]odds.Odd{home, draw, away})) // 95.71428571428572
+```
