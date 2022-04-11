@@ -12,7 +12,7 @@ Logo created by [Egon Elbre](https://github.com/egonelbre).
 
 ## Installation
 Download the library using _go get_:
-```go
+```
 go get github.com/jsgm/go-odds
 ```
 
