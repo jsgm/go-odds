@@ -23,6 +23,7 @@ import (
 )
 ```
 
+# Converting odds between formats
 ## Data types
 Each odd type will return a different data type, depending on your needs.
 | Odd format | Function | Type |
@@ -42,7 +43,7 @@ o := odds.NewOdd(odds.Decimal, 1.64)
 float := o.Probability()
 ```
 
-## Calculate Overround and Payouts
+# Overround and Payouts
 ```go
 home, _ := odds.NewOdd(odds.Implied, 65.00) // Home odds from Implied Probability
 draw, _ := odds.NewOdd(odds.Decimal, 4.00)
@@ -51,3 +52,37 @@ away, _ := odds.NewOdd(odds.Decimal, 7.00)
 fmt.Println("Overround ", odds.GetOverround([]odds.Odd{home, draw, away})) // 4.285714285714278
 fmt.Println("Payout ", odds.GetPayout([]odds.Odd{home, draw, away})) // 95.71428571428572
 ```
+
+# Wager
+
+# Arbitrage Calculation
+
+# Kelly Criterion
+Kelly Criterion is simply strategy that helps calculating the proper stake that you should wager on a particular event. This doesn't just applies to betting but also for investing and calculating risks.
+
+<img align="right" src="https://latex.codecogs.com/svg.latex?\Large&space;K%=\frac{bp-q}{b}" alt="Kelly Criterion Formula">
+
+- b is the multiple of the stake.
+- p is the probability of winning. 70% chances of winning should be 0.7.
+- q is the probability of lossing. i.e. 100% - p = 30. The value would be 0.3.
+- K% is the suggested percentage of the bankroll for the event.
+
+# Simple Parlay Bets
+```go	
+o1, _ := odds.NewOdd(odds.Decimal, 1.25)
+o2, _ := odds.NewOdd(odds.Implied, 50.7)
+o3, _ := odds.NewOdd(odds.Decimal, 4.5)
+
+multi := []odds.Odd{o1, o2, o3} 
+stake := 10.0
+
+p := odds.NewParlay(multi, stake)
+
+p.Profit() // 67.22386587771203
+p.Payout() // 77.22386587771203
+p.SellectionCount() // 3
+p.Probability() // 12.949364663814572 (%)
+```
+
+## Round Robin
+## Teaser

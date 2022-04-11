@@ -75,6 +75,7 @@ func (odd *Odd) Probability() float64{
 	return (1 / odd.DecimalValue) * 100
 }
 
+// Returns Indonesian odds as float64 from Odd{}.
 func (odd *Odd) Indonesian() float64{
 	if odd.DecimalValue >= 2.0{
 		return (odd.DecimalValue - 1)
@@ -83,6 +84,7 @@ func (odd *Odd) Indonesian() float64{
 	}
 }
 
+// Returns Malay odds as float64 from Odd{}.
 func (odd *Odd) Malay() float64{
 	if odd.DecimalValue >= 2.0{
 		return (-1) / (odd.DecimalValue - 1)
@@ -96,6 +98,7 @@ func (odd *Odd) Decimal() float64{
 	return odd.DecimalValue
 }
 
+// Returns HongKong odds as float64 from Odd{}.
 func (odd *Odd) HongKong() float64{
 	return (odd.DecimalValue - 1)
 }
