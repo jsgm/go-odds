@@ -17,7 +17,7 @@ Go gopher illustration created by [Egon Elbre](https://github.com/egonelbre), or
 - [Overround and Payouts](#overround-and-payouts)
 - [Arbitrage Calculation](#arbitrage-calculation)
 - [Kelly Criterion](#kelly-criterion)
-- [Simple Parlay Bets](#installation)
+- [Simple Parlay Bets](#simple-parlay-bets)
 
 ## Installation
 Download the library using _go get_:
