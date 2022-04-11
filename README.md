@@ -8,7 +8,7 @@
 
 __go-odds__ is a simple and fast utility library for making betting odds conversions between formats and calculating probabilities in Go.
 
-Logo created by [Egon Elbre](https://github.com/egonelbre).
+Go gopher illustration created by [Egon Elbre](https://github.com/egonelbre), originally created by [Renee French](https://reneefrench.blogspot.com/).
 
 ## Installation
 Download the library using _go get_:
